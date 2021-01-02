@@ -1,0 +1,15 @@
+name: Swift
+
+on:
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build
+      run: .tuist-bin/tuist build
+    - name: Run tests
+      run: .tuist-bin/tuist test
